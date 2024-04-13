@@ -7,7 +7,7 @@ interface ILoginFormProps {
 }
 
 const Login = ({ setFormState }: ILoginFormProps) => (
-  <>
+  <div className="pt-1">
     <button
       className="w-full flex justify-center mt-6 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       onClick={() => setFormState("login")}
@@ -25,7 +25,7 @@ const Login = ({ setFormState }: ILoginFormProps) => (
     >
       Sign up
     </button>
-  </>
+  </div>
 );
 
 export { Login };

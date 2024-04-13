@@ -1,0 +1,57 @@
+{
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "root": true,
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2021
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.js",
+        "**/*.test.ts",
+        "**/*.test.jsx",
+        "**/*.test.tsx"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
+  "globals": {
+    "window": true
+  },
+  "rules": {
+    "comma-dangle": ["warn", "always-multiline"],
+    "no-async-promise-executor": ["warn"],
+    "no-case-declarations": ["warn"],
+    "no-console": ["warn"],
+    "no-empty": ["warn"],
+    "no-empty-pattern": ["warn"],
+    "no-extra-boolean-cast": ["warn"],
+    "no-extra-semi": ["warn"],
+    "no-fallthrough": ["warn"],
+    "no-inner-declarations": ["warn"],
+    "no-mixed-spaces-and-tabs": ["warn"],
+    "no-prototype-builtins": ["warn"],
+    "no-undef": ["warn"],
+    "no-unsafe-optional-chaining": ["warn"],
+    "prefer-const": ["warn"],
+    "quotes": ["warn", "double"],
+    "react-hooks/exhaustive-deps": ["warn"],
+    "semi": ["warn", "always"],
+    "@typescript-eslint/ban-ts-comment": ["warn"],
+    "@typescript-eslint/ban-types": ["warn"],
+    "@typescript-eslint/no-explicit-any": ["warn"],
+    "@typescript-eslint/no-non-null-asserted-optional-chain": ["warn"],
+    "@typescript-eslint/no-this-alias": ["warn"],
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/no-var-requires": ["warn"]
+  }
+}

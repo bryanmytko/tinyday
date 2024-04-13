@@ -10,7 +10,7 @@ const App = () => {
   const [formState, setFormState] = useState<TFormState>("home");
 
   return (
-    <div className="main flex flex-col">
+    <div className="main flex flex-col items-center justify-center max-w-sm">
       <h1 onClick={() => setFormState("home")} className="cursor-pointer">
         tinyday.
       </h1>

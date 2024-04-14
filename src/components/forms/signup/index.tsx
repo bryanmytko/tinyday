@@ -1,6 +1,15 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
+import { signIn } from "next-auth/react";
+
+import { Error } from "@/components/alerts";
+
+interface IDisplayError {
+  message: string;
+  data?: string;
+}
 
 const Signup = () => {
+  const [error, setError] = useState<IDisplayError | null>(null);
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -12,6 +21,18 @@ const Signup = () => {
         password: formData.get("password"),
       }),
     });
+
+    const jsonResponse = await response.json();
+
+    if (jsonResponse.status === 400)
+      setError({ message: jsonResponse.message, data: jsonResponse.data });
+
+    if (jsonResponse.status === 200)
+      signIn("credentials", {
+        email: formData.get("email"),
+        password: formData.get("password"),
+        redirect: false,
+      });
   };
 
   return (
@@ -20,6 +41,7 @@ const Signup = () => {
       onSubmit={handleSubmit}
       className="transition-opacity transition ease-in-out delay-150 duration-300"
     >
+      {error && <Error header={error.message} text={error.data || ""} />}
       <div className="flex flex-col items-start">
         <label
           htmlFor="email"

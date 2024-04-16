@@ -27,11 +27,12 @@ const Signup = () => {
     if (jsonResponse.status === 400)
       setError({ message: jsonResponse.message, data: jsonResponse.data });
 
-    if (jsonResponse.status === 200)
+    if (jsonResponse.status === 201)
       signIn("credentials", {
         email: formData.get("email"),
         password: formData.get("password"),
-        redirect: false,
+        redirect: true,
+        callbackUrl: "/dashboard"
       });
   };
 
